@@ -1,0 +1,10 @@
+version: "3"
+services:
+ frontend:
+  build: ./dndroller-frontend/
+  ports:
+   - "80:80"
+ dndroller:
+  build: ./dndroller/
+  ports:
+   - "9000:9000"
