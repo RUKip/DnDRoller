@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { CharacterFormComponent } from './character-form/character-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CharacterFormComponent } from './character-form/character-form.componen
     AppRoutingModule,
     FlexLayoutModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
