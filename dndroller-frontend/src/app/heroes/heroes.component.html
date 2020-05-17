@@ -1,7 +1,10 @@
 <div class='hero_board'>
     <div>
-        <div class='hero' *ngFor="let hero of hero_list">
-            
+        <div 
+            id='hero_list' 
+            cdkDropList
+            (cdkDropListDropped)="drop($event)">
+                <div class='hero' *ngFor="let hero of hero_list" cdkDrag>{{ hero.name }}</div>
         </div>
     </div>
     <div>
@@ -17,12 +20,12 @@
         <form [formGroup]="characterForm" (ngSubmit)='onSubmit()'>
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" required>
+            <input type="text" class="form-control" id="name"  formControlName="name" required>
           </div>
     
           <div class="form-group">
             <label for="max_hp">Maximum HP (optional)</label>
-            <input type="number" class="form-control" id="max_hp">
+            <input type="number" class="form-control" id="max_hp" formControlName="max_hp">
           </div>
     
           <button type="submit" class="btn btn-success">Add</button>

@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CharacterService } from '../character-service.service';
 import { Character } from '../character';
 import { FormBuilder } from '@angular/forms';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'; 
 
 @Component({
   selector: 'app-heroes',
@@ -15,7 +16,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private characterService: CharacterService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
     ) {
     this.characterService = characterService;
     this.characterForm = this.formBuilder.group({
@@ -24,18 +25,29 @@ export class HeroesComponent implements OnInit {
     });
    }
 
-  hero_list: Array<Character>;
-  enemy_list: Array<Character>;
+  hero_list: Array<Character> = [];
+  enemy_list: Array<Character> = [];
 
   ngOnInit(): void {
     
   }
-  
+
   onSubmit() {
-    let name = this.characterForm.get('name').value
-    let max_hp = this.characterForm.get('max_hp').value
-    this.hero_list.push(new Character(0, name, max_hp, max_hp))
+    let name = this.characterForm.get('name').value;
+    let max_hp = this.characterForm.get('max_hp').value;
+    this.hero_list.push(new Character(0, name, max_hp, max_hp));
     this.characterForm.reset();
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 }
