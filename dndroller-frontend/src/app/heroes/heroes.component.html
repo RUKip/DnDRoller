@@ -3,13 +3,18 @@
         <div 
             id='hero_list' 
             cdkDropList
+            [cdkDropListConnectedTo]="['enemy_list']"
             (cdkDropListDropped)="drop($event)">
                 <div class='hero' *ngFor="let hero of hero_list" cdkDrag>{{ hero.name }}</div>
         </div>
     </div>
     <div>
-        <div class='enemy' *ngFor="let enemy of enemy_list">
-            
+        <div
+        id='hero_list' 
+        cdkDropList
+        [cdkDropListConnectedTo]="['enemy_list']"
+        (cdkDropListDropped)="drop($event)">
+            <div class='enemy' *ngFor="let enemy of enemy_list"> </div>
         </div>
     </div>
 
