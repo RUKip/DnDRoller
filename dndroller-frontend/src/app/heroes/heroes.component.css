@@ -1,0 +1,6 @@
+.filler { flex-grow: 1; }
+.hero_board {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
