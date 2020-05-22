@@ -11,13 +11,15 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {DragDropModule} from '@angular/cdk/drag-drop'; 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { BattleboardComponent } from './battleboard/battleboard.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainpageComponent,
     HeroesComponent,
+    BattleboardComponent,
   ],
   imports: [
     BrowserModule,

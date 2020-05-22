@@ -1,0 +1,30 @@
+#battle_list {
+    width: 400px;
+    height: 200px;
+    background-color: violet;
+}
+
+.character {
+    max-width: 100%;
+    border: solid 1px darkslategrey;
+    min-height: 60px;
+    display: block;
+    background: lightgrey;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: move;
+    padding: 20px 10px;
+    flex-grow: 1;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1800px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}

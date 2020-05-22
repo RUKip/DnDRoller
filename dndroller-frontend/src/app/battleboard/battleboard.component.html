@@ -1,0 +1,12 @@
+<div class="content">
+    <div 
+        id='battle_list' 
+        cdkDropList
+        [cdkDropListData]="battle_list"
+        (cdkDropListDropped)="drop($event)">
+            <div class="flex" *ngFor="let character of battle_list" cdkDrag>
+                <div class='character'>{{ character.name }}</div>
+                <p><ngb-progressbar type="info" [value]="[((character.hp/character.max_hp)*100).toFixed(2)]"></ngb-progressbar></p>
+            </div>
+    </div>
+</div>

@@ -1,9 +1,11 @@
 <div class='hero_board'>
     <div>
         <div 
-            id='hero_list' 
+            id='hero_list'
+            class="character_list" 
             cdkDropList
-            [cdkDropListConnectedTo]="['enemy_list']"
+            [cdkDropListData]="hero_list"
+            [cdkDropListConnectedTo]="['battle_list']"
             (cdkDropListDropped)="drop($event)">
                 <div class='hero' *ngFor="let hero of hero_list" cdkDrag>{{ hero.name }}</div>
         </div>
@@ -11,8 +13,10 @@
     <div>
         <div
           id='enemy_list' 
+          class="character_list" 
           cdkDropList
-          [cdkDropListConnectedTo]="['hero_list']"
+          [cdkDropListData]="enemy_list"
+          [cdkDropListConnectedTo]="['battle_list']"
           (cdkDropListDropped)="drop($event)">
               <div class='enemy' *ngFor="let enemy of enemy_list"> </div>
         </div>

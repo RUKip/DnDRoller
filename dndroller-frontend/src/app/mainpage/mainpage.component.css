@@ -1,9 +1,14 @@
 .battle_list {
-    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("src/assets/images/yawning_portal.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
 }
 
 .full_page {
-    display:flex;
+    display: flex;
 }
 
 .filler { flex-grow: 1; }
