@@ -10,11 +10,11 @@
     </div>
     <div>
         <div
-        id='hero_list' 
-        cdkDropList
-        [cdkDropListConnectedTo]="['enemy_list']"
-        (cdkDropListDropped)="drop($event)">
-            <div class='enemy' *ngFor="let enemy of enemy_list"> </div>
+          id='enemy_list' 
+          cdkDropList
+          [cdkDropListConnectedTo]="['hero_list']"
+          (cdkDropListDropped)="drop($event)">
+              <div class='enemy' *ngFor="let enemy of enemy_list"> </div>
         </div>
     </div>
 

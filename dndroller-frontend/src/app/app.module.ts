@@ -9,7 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {DragDropModule} from '@angular/cdk/drag-drop'; 
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
