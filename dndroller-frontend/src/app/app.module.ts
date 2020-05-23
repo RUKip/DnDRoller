@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon'
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from './dialog-save-party/dialog-save-party.component'; 
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     MatTooltipModule,
     MatDialogModule,
     MatFormFieldModule,
-
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CharacterService } from '../character-service.service';
 import { Character } from '../character';
 import { FormBuilder } from '@angular/forms';
-import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop'; 
-import { MatDialog } from '@angular/material/dialog';
+import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop'; 
+import {MatDialog} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party.component';
 
 @Component({
@@ -15,6 +15,7 @@ import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party
 export class HeroesComponent implements OnInit {
 
   characterForm;
+  loaded_party_name;
 
   constructor(
     private characterService: CharacterService,
@@ -58,12 +59,11 @@ export class HeroesComponent implements OnInit {
   saveDialog(): void {
     const dialogRef = this.dialog.open(DialogSavePartyComponent, {
       width: '600px',
-      data: {name: '', party: this.hero_list}
+      data: {name: this.loaded_party_name, party: this.hero_list}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.characterService.saveCharacters(result.name, result.party);
+      this.characterService.saveCharacters(result, this.hero_list);
     });
   }
 
