@@ -11,7 +11,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon'
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { BattleboardComponent } from './battleboard/battleboard.component'; 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { BattleboardComponent } from './battleboard/battleboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     DragDropModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

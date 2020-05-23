@@ -2,13 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("src/assets/images/yawning_portal.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%, 100%;
 }
 
 .full_page {
     display: flex;
+    background-image: url("src/assets/images/yawning_portal.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
 }
 
 .filler { flex-grow: 1; }
@@ -17,5 +17,4 @@
     display: flex;
     flex-flow: column;
     height: 100vh;
-    background-color: yellow;
 }
