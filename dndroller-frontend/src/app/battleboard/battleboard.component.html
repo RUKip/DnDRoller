@@ -5,8 +5,14 @@
         [cdkDropListData]="battle_list"
         (cdkDropListDropped)="drop($event)">
             <div class="flex" *ngFor="let character of battle_list" cdkDrag>
-                <div class='character'>{{ character.name }}</div>
-                <p><ngb-progressbar type="info" [value]="[((character.hp/character.max_hp)*100).toFixed(2)]"></ngb-progressbar></p>
+                <div class='character'>
+                    {{ character.name }}
+                    <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <ngb-progressbar type="danger" height="10px" [value]="[((character.hp/character.max_hp)*100).toFixed(2)]"></ngb-progressbar>
             </div>
+            <div class="drop-message" *ngIf="battle_list.length == 0"> Drop your characters here!</div>
     </div>
 </div>

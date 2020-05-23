@@ -30,4 +30,10 @@ export class BattleboardComponent implements OnInit {
         );
     }
   }
+
+  closeCharacter(character) {
+    console.log("clicked");
+    let index = this.battle_list.indexOf(character);
+    this.battle_list.splice(index, 1);
+  }
 }

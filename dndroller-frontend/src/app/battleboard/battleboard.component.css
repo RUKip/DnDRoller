@@ -1,14 +1,16 @@
 #battle_list {
-    width: 400px;
-    height: 200px;
-    background-color: violet;
+    width: 300px;
+    max-height: 400px;
+    background-color: rgb(255, 247, 133);
+    border: solid 2px darkslategrey;
+    overflow-y: scroll;
 }
 
 .character {
     max-width: 100%;
     border: solid 1px darkslategrey;
     min-height: 60px;
-    display: block;
+    display: flexbox;
     background: lightgrey;
     border-radius: 4px;
     overflow: hidden;
@@ -28,3 +30,27 @@
     display: flex;
     flex-direction: column;
 }
+
+.drop-message {
+    text-align: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+} 
