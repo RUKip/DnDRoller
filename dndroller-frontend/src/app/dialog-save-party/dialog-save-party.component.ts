@@ -18,7 +18,8 @@ export class DialogSavePartyComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.data.name = 'cancelled';
+    this.dialogRef.close('cancelled');
   }
 
   ngOnInit(): void {

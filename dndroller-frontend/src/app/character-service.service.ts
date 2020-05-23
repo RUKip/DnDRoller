@@ -22,6 +22,6 @@ export class CharacterService {
 
   saveCharacters(party_name: string, characters: Array<Character>) {
     const url: string = 'http://' + this.settings.defaultUrl + '/api/characters/store';
-    return this.http.post(url, characters);
+    return this.http.post(url, {'party_name': party_name, 'characters': characters});
   }
 }

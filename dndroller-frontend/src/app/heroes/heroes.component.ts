@@ -63,7 +63,11 @@ export class HeroesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.characterService.saveCharacters(result, this.hero_list);
+      console.log('Closing');  
+      if (result != 'cancelled') {
+        console.log(result);
+        this.characterService.saveCharacters(result, this.hero_list);
+      }
     });
   }
 
