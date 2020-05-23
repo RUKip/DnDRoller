@@ -20,7 +20,7 @@ export class CharacterService {
     return  this.http.get(url);
   }
 
-  saveCharacters(characters: Array<Character>) {
+  saveCharacters(party_name: string, characters: Array<Character>) {
     const url: string = 'http://' + this.settings.defaultUrl + '/api/characters/store';
     return this.http.post(url, characters);
   }

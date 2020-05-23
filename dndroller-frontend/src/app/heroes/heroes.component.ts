@@ -3,6 +3,8 @@ import { CharacterService } from '../character-service.service';
 import { Character } from '../character';
 import { FormBuilder } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop'; 
+import { MatDialog } from '@angular/material/dialog';
+import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party.component';
 
 @Component({
   selector: 'app-heroes',
@@ -17,6 +19,7 @@ export class HeroesComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
     private formBuilder: FormBuilder,
+    public dialog: MatDialog,
     ) {
     this.characterService = characterService;
     this.characterForm = this.formBuilder.group({
@@ -52,4 +55,19 @@ export class HeroesComponent implements OnInit {
     }
   }
 
+  saveDialog(): void {
+    const dialogRef = this.dialog.open(DialogSavePartyComponent, {
+      width: '600px',
+      data: {name: '', party: this.hero_list}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.characterService.saveCharacters(result.name, result.party);
+    });
+  }
+
+  loadDialog(): void {
+
+  }
 }
