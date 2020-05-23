@@ -5,7 +5,7 @@ services:
   ports:
    - "80:80"
  dndroller:
-  image: dndroller:1.0-SNAPSHOT
+  image: grkip/dndroller
   environment:
    - APPLICATION_SECRET="UPVWf7KXATsV3l>su55z:PLqk8p0yXzYGkw>L<FAkOmH<_^pS/jg/XALfR70J<a/"
   ports:
