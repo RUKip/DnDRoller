@@ -74,4 +74,9 @@ export class HeroesComponent implements OnInit {
   loadDialog(): void {
 
   }
+
+  closeCharacter(character) {
+    let index = this.hero_list.indexOf(character);
+    this.hero_list.splice(index, 1);
+  }
 }
