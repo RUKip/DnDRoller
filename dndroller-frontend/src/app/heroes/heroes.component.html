@@ -13,14 +13,15 @@
             class="character_list" 
             cdkDropList
             [cdkDropListData]="hero_list"
-            [cdkDropListConnectedTo]="['battle_list']"
+            [cdkDropListConnectedTo]="['battle_list', 'enemy_list']"
             (cdkDropListDropped)="drop($event)">
                 <div class='hero' *ngFor="let hero of hero_list" cdkDrag>
                   {{ hero.name }}
-                  <button (click)='closeCharacter(hero)' type="button" class="close" aria-label="Close">
+                  <button (click)='closeCharacter(hero_list, hero)' type="button" class="close" aria-label="Close">
                       <span aria-hidden="true">×</span>
                   </button>
                 </div>
+                <div class="drop-message" *ngIf="hero_list.length == 0"> Drop party characters here!</div>
           </div>
     </div>
     <div>
@@ -29,9 +30,15 @@
           class="character_list" 
           cdkDropList
           [cdkDropListData]="enemy_list"
-          [cdkDropListConnectedTo]="['battle_list']"
+          [cdkDropListConnectedTo]="['battle_list', 'hero_list']"
           (cdkDropListDropped)="drop($event)">
-              <div class='enemy' *ngFor="let enemy of enemy_list"> </div>
+              <div class='hero' *ngFor="let enemy of enemy_list" cdkDrag>
+                {{ enemy.name }}
+                  <button (click)='closeCharacter(enemy_list, enemy)' type="button" class="close" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+              </div>
+              <div class="drop-message" *ngIf="enemy_list.length == 0"> Drop non party characters here!</div>
         </div>
     </div>
 

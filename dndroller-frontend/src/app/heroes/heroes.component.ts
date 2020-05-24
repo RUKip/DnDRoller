@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CharacterService } from '../character-service.service';
 import { Character } from '../character';
 import { FormBuilder } from '@angular/forms';
-import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop'; 
+import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop'; 
 import {MatDialog} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party.component';
 
@@ -46,6 +46,13 @@ export class HeroesComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else if ('enemy_list' === event.container.id || 'hero_list' === event.container.id) {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
       copyArrayItem(
           event.previousContainer.data,
@@ -63,7 +70,6 @@ export class HeroesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Closing');  
       if (result != 'cancelled') {
         console.log(result);
         this.characterService.saveCharacters(result, this.hero_list);
@@ -75,8 +81,8 @@ export class HeroesComponent implements OnInit {
 
   }
 
-  closeCharacter(character) {
-    let index = this.hero_list.indexOf(character);
-    this.hero_list.splice(index, 1);
+  closeCharacter(list, character) {
+    let index = list.indexOf(character);
+    list.splice(index, 1);
   }
 }
