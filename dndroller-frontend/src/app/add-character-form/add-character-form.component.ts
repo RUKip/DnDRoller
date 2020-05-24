@@ -14,8 +14,9 @@ export interface DialogData {
 export class AddCharacterFormComponent implements OnInit {
 
   characterForm = this.fb.group({
-    name: ['', Validators.required],
-    max_hp: ['0']
+    name: [null, Validators.required],
+    race: [null],
+    max_hp: [null, Validators.required],
   });
 
   constructor(
@@ -30,7 +31,8 @@ export class AddCharacterFormComponent implements OnInit {
   onSubmit() {
     let name = this.characterForm.get('name').value;
     let max_hp = this.characterForm.get('max_hp').value;
-    this.data.party.push(new Character(0, name, max_hp, max_hp));
+    let race = this.characterForm.get('race').value;
+    this.data.party.push(new Character(name, race, max_hp, max_hp));
     this.dialogRef.close();
   }
 }

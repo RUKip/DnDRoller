@@ -12,7 +12,7 @@ export class BattleboardComponent implements OnInit {
   battle_list: Array<Character> = [];
 
   constructor() { 
-    this.battle_list.push(new Character(1, 'hello!'))
+    this.battle_list.push(new Character('hello!'))
   }
 
   ngOnInit(): void {

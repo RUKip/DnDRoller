@@ -6,19 +6,27 @@
         (cdkDropListDropped)="drop($event)">
             <div class="flex" *ngFor="let character of battle_list" cdkDrag>
                 <div class='character'>
-                    <b class="character_name">{{ character.name }}</b>
-                    <div class="health-input"> 
+                    <div class="character-naming">
+                        <b class="character_name">{{ character.name }} </b>
+                        {{character.race}}
+                        <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="characer-health"> 
                         <mat-form-field>
                             <input #health matInput type="number" value="0">
                         </mat-form-field>
                         <button class="btn-success" (click)="character.addHealth(health.value)">Add</button>
                     </div>
-                    <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <ngb-progressbar type="danger" height="10px" [value]="[((character.hp/character.max_hp)*100).toFixed(2)]">{{character.hp}}/{{character.max_hp}}</ngb-progressbar>
             </div>
             <div class="drop-message" *ngIf="battle_list.length == 0"> Drop battling characters here!</div>
+    </div>
+    <div class="battle_bar">
+        <button mat-raised-button matTooltip="End turn">
+            <mat-icon class="battle_icons">arrow_forward_ios</mat-icon>
+        </button>
     </div>
 </div>

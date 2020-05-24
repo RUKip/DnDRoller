@@ -16,7 +16,8 @@
             [cdkDropListConnectedTo]="['battle_list', 'enemy_list']"
             (cdkDropListDropped)="drop($event)">
                 <div class='hero' *ngFor="let hero of hero_list" cdkDrag>
-                  {{ hero.name }}
+                  <b>{{ hero.name }} </b>
+                  {{ hero.race }}
                   <button (click)='closeCharacter(hero_list, hero)' type="button" class="close" aria-label="Close">
                       <span aria-hidden="true">×</span>
                   </button>
@@ -33,7 +34,8 @@
           [cdkDropListConnectedTo]="['battle_list', 'hero_list']"
           (cdkDropListDropped)="drop($event)">
               <div class='hero' *ngFor="let enemy of enemy_list" cdkDrag>
-                {{ enemy.name }}
+                <b>{{ enemy.name }} </b>
+                {{ enemy.race }}
                   <button (click)='closeCharacter(enemy_list, enemy)' type="button" class="close" aria-label="Close">
                       <span aria-hidden="true">×</span>
                   </button>
