@@ -6,7 +6,11 @@
         (cdkDropListDropped)="drop($event)">
             <div class="flex" *ngFor="let character of battle_list" cdkDrag>
                 <div class='character'>
-                    {{ character.name }}
+                    <b class="character_name">{{ character.name }}</b>
+                    <mat-form-field class='health-input'>
+                        <input #health matInput type="number" value=0>
+                    </mat-form-field>
+                    <button (click)="character.addHealth(health.value)">Add</button>
                     <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

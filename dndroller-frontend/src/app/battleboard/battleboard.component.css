@@ -4,10 +4,22 @@
     background-color: rgb(255, 247, 133);
     border: solid 2px darkslategrey;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.health-input {
+    width: 50px;
+}
+
+.character_name {
+    padding-right: 10px;
 }
 
 .character {
-    max-width: 100%;
+    flex-wrap: wrap;
+    height: 60px;
+    width: 100%;
     border: solid 1px darkslategrey;
     min-height: 60px;
     display: flexbox;
@@ -15,16 +27,16 @@
     border-radius: 4px;
     overflow: hidden;
     cursor: move;
-    padding: 20px 10px;
+    padding: 0px 10px;
     flex-grow: 1;
 }
 
 .content {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 1800px;
 }
 
 .flex {

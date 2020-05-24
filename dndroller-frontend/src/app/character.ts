@@ -24,4 +24,17 @@ export class Character {
             this.initiative = initiative;
             this.statuses = statuses;
         }
+
+    
+    addHealth(value: number) {
+        let temp_hp = this.hp + value;
+        if (temp_hp > this.max_hp) {
+            this.hp = this.max_hp;
+        } else if (temp_hp < 0) {
+            this.hp = 0;
+        } else {
+            this.hp = temp_hp;
+        }
+    }
+
 }
