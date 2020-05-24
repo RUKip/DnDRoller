@@ -30,7 +30,7 @@ export class Character {
 
     
     addHealth(value: number) {
-        let temp_hp = this.hp + value;
+        let temp_hp = this.hp + Number(value);
         if (temp_hp > this.max_hp) {
             this.hp = this.max_hp;
         } else if (temp_hp < 0) {

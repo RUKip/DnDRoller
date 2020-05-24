@@ -38,18 +38,18 @@ export class HeroesComponent implements OnInit {
     
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Character[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray<Character>(event.container.data, event.previousIndex, event.currentIndex);
     } else if ('enemy_list' === event.container.id || 'hero_list' === event.container.id) {
-      transferArrayItem(
+      transferArrayItem<Character>(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
     } else {
-      copyArrayItem(
+      copyArrayItem<Character>(
           event.previousContainer.data,
           event.container.data,
           event.previousIndex,

@@ -18,11 +18,11 @@ export class BattleboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Character[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray<Character>(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      copyArrayItem(
+      copyArrayItem<Character>(
           event.previousContainer.data,
           event.container.data,
           event.previousIndex,

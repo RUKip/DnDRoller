@@ -9,7 +9,7 @@
                     <b class="character_name">{{ character.name }}</b>
                     <div class="health-input"> 
                         <mat-form-field>
-                            <input #health matInput type="number" value=0>
+                            <input #health matInput type="number" value="0">
                         </mat-form-field>
                         <button class="btn-success" (click)="character.addHealth(health.value)">Add</button>
                     </div>
