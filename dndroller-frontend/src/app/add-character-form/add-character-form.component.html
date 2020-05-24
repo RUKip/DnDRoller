@@ -1,0 +1,18 @@
+<div class="container character_form">
+    <h1>Add a character</h1>
+    <form [formGroup]="characterForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label for="name">Name</mat-label>
+                <input matInput type="text" id="name" formControlName="name" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label for="max_hp">Maximum HP (optional)</mat-label>
+                <input matInput type="number" class="form-control" id="max_hp" formControlName="max_hp">
+            </mat-form-field>
+        </div>
+        <button (click)='onSubmit()' class="btn btn-success">Add</button>
+    </form>
+</div>

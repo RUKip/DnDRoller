@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CharacterService } from '../character-service.service';
 import { Character } from '../character';
 import { FormBuilder } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop'; 
 import {MatDialog} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party.component';
+import { AddCharacterFormComponent } from '../add-character-form/add-character-form.component';
 
 @Component({
   selector: 'app-heroes',
@@ -17,10 +18,14 @@ export class HeroesComponent implements OnInit {
   characterForm;
   loaded_party_name;
 
+  hero_list: Array<Character> = [];
+  enemy_list: Array<Character> = [];
+
   constructor(
     private characterService: CharacterService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
+    private cdRef: ChangeDetectorRef,
     ) {
     this.characterService = characterService;
     this.characterForm = this.formBuilder.group({
@@ -29,18 +34,8 @@ export class HeroesComponent implements OnInit {
     });
    }
 
-  hero_list: Array<Character> = [];
-  enemy_list: Array<Character> = [];
-
   ngOnInit(): void {
     
-  }
-
-  onSubmit() {
-    let name = this.characterForm.get('name').value;
-    let max_hp = this.characterForm.get('max_hp').value;
-    this.hero_list.push(new Character(0, name, max_hp, max_hp));
-    this.characterForm.reset();
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -71,7 +66,6 @@ export class HeroesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != 'cancelled') {
-        console.log(result);
         this.characterService.saveCharacters(result, this.hero_list);
       }
     });
@@ -79,6 +73,17 @@ export class HeroesComponent implements OnInit {
 
   loadDialog(): void {
 
+  }
+
+  addCharacterDialog(): void {
+    const dialogRef = this.dialog.open(AddCharacterFormComponent, {
+      width: '600px',
+      data: {party: this.hero_list}
+    });
+    dialogRef.afterClosed().subscribe(() => {
+        this.hero_list = dialogRef.componentInstance.data.party;
+        this.cdRef.detectChanges();
+    });
   }
 
   closeCharacter(list, character) {

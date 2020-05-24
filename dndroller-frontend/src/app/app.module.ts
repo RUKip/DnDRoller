@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from './dialog-save-party/dialog-save-party.component'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AddCharacterFormComponent } from './add-character-form/add-character-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatInputModule} from '@angular/material/input';
     HeroesComponent,
     BattleboardComponent,
     DialogSavePartyComponent,
+    AddCharacterFormComponent,
   ],
   imports: [
     BrowserModule,

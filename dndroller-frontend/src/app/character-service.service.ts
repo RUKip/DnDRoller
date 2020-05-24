@@ -9,7 +9,7 @@ import { Character } from './character';
 export class CharacterService {
   settings;
   http;
-  
+
   constructor(http: HttpClient) {
     this.http = http;
     this.settings = new Settings();
