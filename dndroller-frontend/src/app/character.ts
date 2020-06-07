@@ -1,4 +1,5 @@
 import { Status } from './status';
+import { Stat } from './Stat';
 
 export class Character {
 
@@ -7,6 +8,7 @@ export class Character {
     public max_hp: number;
     public hp: number;
     public initiative: number;
+    public stats: Stat;
     public statuses: Array<Status>
 
     constructor(
@@ -15,7 +17,8 @@ export class Character {
         max_hp: number = 0,
         hp: number = max_hp,
         initiative: number = 0,
-        statuses: Array<Status> = []
+        statuses: Array<Status> = [],
+        stats: Stat
         ) {
             this.name = name;
             this.race = race;
@@ -23,6 +26,7 @@ export class Character {
             this.hp = hp;
             this.initiative = initiative;
             this.statuses = statuses;
+            this.stats = stats;
         }
 
     addHealth(value: number) {
