@@ -66,7 +66,7 @@ export class HeroesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != 'cancelled') {
-        this.characterService.saveCharacters(result, this.hero_list);
+        this.characterService.saveParty(result, this.hero_list);
       }
     });
   }

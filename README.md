@@ -7,7 +7,7 @@
 - Using angular material as bootstrap for the UI
 
 ### Setup
-- Create the backend image by running `sbt docker:publishLocal`
+- Create the backend image by running `sbt docker:publishLocal` in the dndroller folder
 - Start the dndroller by running `docker-compose up` in the main folder
 
 ### 

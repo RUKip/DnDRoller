@@ -16,12 +16,12 @@ export class CharacterService {
   }
 
   loadCharacters(party_name: string) {
-    const url: string = 'http://' + this.settings.defaultUrl + '/api/characters/' + party_name;
+    const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/' + party_name;
     return  this.http.get(url);
   }
 
-  saveCharacters(party_name: string, characters: Array<Character>) {
-    const url: string = 'http://' + this.settings.defaultUrl + '/api/characters/store';
-    return this.http.post(url, {'party_name': party_name, 'characters': characters});
+  saveParty(party_name: string, characters: Array<Character>) {
+    const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/save';
+    return this.http.post(url, {'party_name': party_name, 'heroes': characters});
   }
 }

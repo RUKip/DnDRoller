@@ -12,4 +12,4 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # API routes
 
 # Heroes routes
-POST    /api/heroes/save            controllers.HeroesController.save
+POST    /api/heroes/save            controllers.HeroesController.saveParty()
