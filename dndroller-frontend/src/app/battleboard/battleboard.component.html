@@ -1,4 +1,9 @@
 <div class="content">
+    <div class="battle_bar" *ngIf="battle_list.length > 0">
+        <button mat-raised-button matTooltip="roll initiative" (click)="rollInitiative(battle_list)">
+            <mat-icon class="battle_icons">casino</mat-icon>
+        </button>
+    </div>
     <div 
         id='battle_list' 
         cdkDropList
@@ -6,13 +11,30 @@
         (cdkDropListDropped)="drop($event)">
             <div class="flex" *ngFor="let character of battle_list" cdkDrag>
                 <div class='character'>
-                    {{ character.name }}
-                    <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    <div class="character-row">
+                        <b class="character_name">{{ character.name }} </b>
+                        {{character.race}}
+                        <button (click)='closeCharacter(character)' type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="character-row">
+                        <div class="characer-health"> 
+                            <mat-form-field>
+                                <input #health matInput type="number" value="0">
+                            </mat-form-field>
+                            <button class="btn-success" (click)="character.addHealth(health.value)">Add</button>
+                        </div>
+                        <div>Initiative: {{character.initiative}}</div>
+                    </div>
                 </div>
                 <ngb-progressbar type="danger" height="10px" [value]="[((character.hp/character.max_hp)*100).toFixed(2)]">{{character.hp}}/{{character.max_hp}}</ngb-progressbar>
             </div>
-            <div class="drop-message" *ngIf="battle_list.length == 0"> Drop your characters here!</div>
+            <div class="drop-message" *ngIf="battle_list.length == 0"> Drop battling characters here!</div>
+    </div>
+    <div class="battle_bar" *ngIf="battle_list.length > 0">
+        <button mat-raised-button matTooltip="End turn" (click)="walk(battle_list)">
+            <mat-icon class="battle_icons">arrow_forward_ios</mat-icon>
+        </button>
     </div>
 </div>

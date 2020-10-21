@@ -12,9 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BattleboardComponent } from './battleboard/battleboard.component'; 
+
 import { MatIconModule } from '@angular/material/icon'
 import {MatTooltipModule} from '@angular/material/tooltip'; 
-import { BattleboardComponent } from './battleboard/battleboard.component'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogSavePartyComponent } from './dialog-save-party/dialog-save-party.component'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { AddCharacterFormComponent } from './add-character-form/add-character-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +28,8 @@ import { BattleboardComponent } from './battleboard/battleboard.component';
     MainpageComponent,
     HeroesComponent,
     BattleboardComponent,
+    DialogSavePartyComponent,
+    AddCharacterFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,10 @@ import { BattleboardComponent } from './battleboard/battleboard.component';
     DragDropModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

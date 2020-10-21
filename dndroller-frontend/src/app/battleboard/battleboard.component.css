@@ -4,27 +4,42 @@
     background-color: rgb(255, 247, 133);
     border: solid 2px darkslategrey;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.characer-health {
+}
+
+.character-row {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0;
+    flex-direction: row;
+}
+
+.character_name {
+    padding-right: 10px;
 }
 
 .character {
-    max-width: 100%;
+    height: 80px;
+    width: 100%;
     border: solid 1px darkslategrey;
     min-height: 60px;
-    display: flexbox;
     background: lightgrey;
     border-radius: 4px;
     overflow: hidden;
     cursor: move;
-    padding: 20px 10px;
-    flex-grow: 1;
+    padding: 0px 10px;
 }
 
 .content {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 1800px;
 }
 
 .flex {
@@ -34,6 +49,14 @@
 
 .drop-message {
     text-align: center;
+}
+
+.battle_icons {
+    color: rgb(40, 167, 69);    ;
+}
+
+.battle_bar{
+    background-color: lightgrey;
 }
 
 /* width */

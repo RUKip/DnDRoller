@@ -9,6 +9,8 @@ scalaVersion := "2.13.2"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "2.9.0"
+libraryDependencies += "com.google.code.gson" % "gson" % "2.8.6"
 
 scalacOptions in Universal ++= Seq(
   "-Dpidfile.path=/dev/null"

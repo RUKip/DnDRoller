@@ -3,6 +3,7 @@ FROM node:latest as builder
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install -g @angular/cli
+RUN npm install
 RUN ng build
 
 #nginx build

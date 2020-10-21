@@ -10,3 +10,5 @@ services:
    - APPLICATION_SECRET="UPVWf7KXATsV3l>su55z:PLqk8p0yXzYGkw>L<FAkOmH<_^pS/jg/XALfR70J<a/"
   ports:
    - "9000:9000"
+ mongo:
+  image: mongo:latest
