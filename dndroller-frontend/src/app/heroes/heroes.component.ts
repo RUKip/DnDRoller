@@ -67,6 +67,8 @@ export class HeroesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != 'cancelled') {
         this.characterService.saveParty(result, this.hero_list);
+        console.log('trying to save party:');
+        console.log(this.hero_list);
       }
     });
   }
