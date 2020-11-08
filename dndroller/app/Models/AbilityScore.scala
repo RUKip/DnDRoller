@@ -7,21 +7,21 @@ object AbilityScore {
   val DefaultAbilityScore = 10
 
   implicit val abilityScoreReader: Reads[AbilityScore] = (
-    (JsPath \ "strength").read[Int] and
-      (JsPath \ "dexterity").read[Int] and
-      (JsPath \ "constitution").read[Int] and
-      (JsPath \ "intelligence").read[Int] and
-      (JsPath \ "wisdom").read[Int] and
-      (JsPath \ "charisma").read[Int]
+    (JsPath \ "str").read[Int] and
+      (JsPath \ "dex").read[Int] and
+      (JsPath \ "con").read[Int] and
+      (JsPath \ "int").read[Int] and
+      (JsPath \ "wis").read[Int] and
+      (JsPath \ "cha").read[Int]
     )(AbilityScore.apply _)
 }
 
 case class AbilityScore(
-  strength: Int = AbilityScore.DefaultAbilityScore,
-  dexterity: Int = AbilityScore.DefaultAbilityScore,
-  constitution: Int = AbilityScore.DefaultAbilityScore,
-  intelligence: Int = AbilityScore.DefaultAbilityScore,
-  wisdom: Int = AbilityScore.DefaultAbilityScore,
-  charisma: Int = AbilityScore.DefaultAbilityScore
+  str: Int = AbilityScore.DefaultAbilityScore,
+  dex: Int = AbilityScore.DefaultAbilityScore,
+  con: Int = AbilityScore.DefaultAbilityScore,
+  int: Int = AbilityScore.DefaultAbilityScore,
+  wis: Int = AbilityScore.DefaultAbilityScore,
+  cha: Int = AbilityScore.DefaultAbilityScore
 ) {
 }

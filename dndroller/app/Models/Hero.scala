@@ -6,11 +6,16 @@ import play.api.libs.functional.syntax._
 object Hero {
   implicit val heroReader: Reads[Hero] = (
     (JsPath \ "name").read[String] and
-      (JsPath \ "ability_score").read[AbilityScore]
+      (JsPath \ "race").read[String] and
+      (JsPath \ "max_hp").read[Int] and
+      (JsPath \ "stats").read[AbilityScore]
     )(Hero.apply _)
 }
 
-case class Hero (name: String, ability_score: AbilityScore) {
-
+case class Hero (
+  name: String,
+  race: String,
+  max_hp: Int,
+  ability_score: AbilityScore
+) {
 }
-
