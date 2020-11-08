@@ -1,21 +1,18 @@
 package Models
 
 import scala.collection.mutable
-import scala.collection.mutable.HashMap
 
-class Party {
+class Party(name: String) {
 
   var heroes: mutable.Map[String, Hero] = new mutable.HashMap[String, Hero]
 
   def addHero(hero: Hero): Unit = {
-    this.heroes + (hero.name -> hero)
+    this.heroes = this.heroes + (hero.name -> hero)
   }
 
-  def removeHero(): Unit = {
-
+  def removeHero(name: String): Unit = {
+    this.heroes = this.heroes - name
   }
 
-  def passiveScore(ability_name: String): Unit ={
-
-  }
+  def getName: String = name
 }

@@ -24,4 +24,13 @@ case class AbilityScore(
   wis: Int = AbilityScore.DefaultAbilityScore,
   cha: Int = AbilityScore.DefaultAbilityScore
 ) {
+
+  def toMap: Map[String, Int] = Map(
+    "str" -> this.str,
+    "dex" -> this.dex,
+    "con" -> this.con,
+    "int" -> this.int,
+    "wis" -> this.wis,
+    "cha" -> this.cha
+  )
 }

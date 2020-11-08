@@ -5,7 +5,7 @@ import Models.Hero
 import akka.actor.ActorSystem
 import akka.stream.Materializer
 import javax.inject._
-import play.api.libs.json.{JsError, JsPath, JsResult, JsSuccess, Reads}
+import play.api.libs.json._
 import play.api.mvc._
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -42,7 +42,7 @@ class HeroesController @Inject()(val cc: ControllerComponents, val databaseHandl
             val heroes = json.validate[List[Hero]](heroes_reads)
             heroes match {
               case success: JsSuccess[List[Hero]] =>
-                success.value.map(hero => databaseHandler.addHero(hero))
+                success.value.foreach(hero => databaseHandler.updateHero(hero))
                 Ok(s.value)
               case error: JsError => BadRequest(error.errors.toString())
             }
