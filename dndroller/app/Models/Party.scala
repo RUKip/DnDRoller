@@ -14,5 +14,5 @@ class Party(name: String) {
     this.heroes = this.heroes - name
   }
 
-  def getName: String = name
+  def getName(): String = name
 }

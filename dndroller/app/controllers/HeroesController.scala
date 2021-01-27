@@ -55,4 +55,11 @@ class HeroesController @Inject()(val cc: ControllerComponents, val databaseHandl
     }
   }
 
+  def saveRandomHero():  Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
+    Future {
+      databaseHandler.randomInsert()
+      Ok("Success")
+    }
+  }
+
 }

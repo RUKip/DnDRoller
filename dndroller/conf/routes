@@ -13,3 +13,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 # Heroes routes
 POST    /api/heroes/save            controllers.HeroesController.saveParty()
+
+POST    /api/heroes/insert/random   controllers.HeroesController.saveRandomHero()
