@@ -23,6 +23,6 @@ export class CharacterService {
   saveParty(party_name: string, characters: Array<Character>) {
     const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/save';
     console.log('posting to url ' + url);
-    return this.http.post(url, {'party_name': party_name, 'heroes': characters});
+    return this.http.post(url, {'party_name': party_name, 'heroes': characters}, {responseType: 'text'});
   }
 }
