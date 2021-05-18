@@ -17,10 +17,13 @@ import { BattleboardComponent } from './battleboard/battleboard.component';
 import { MatIconModule } from '@angular/material/icon'
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { DialogSavePartyComponent } from './dialog-save-party/dialog-save-party.component'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddCharacterFormComponent } from './add-character-form/add-character-form.component';
+import { DialogLoadPartyComponent } from './dialog-load-party/dialog-load-party.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,10 @@ import { AddCharacterFormComponent } from './add-character-form/add-character-fo
     MainpageComponent,
     HeroesComponent,
     BattleboardComponent,
+    BattleboardComponent,
     DialogSavePartyComponent,
     AddCharacterFormComponent,
+    DialogLoadPartyComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { AddCharacterFormComponent } from './add-character-form/add-character-fo
     MatTooltipModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

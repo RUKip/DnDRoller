@@ -6,6 +6,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '
 import {MatDialog} from '@angular/material/dialog';
 import { DialogSavePartyComponent } from '../dialog-save-party/dialog-save-party.component';
 import { AddCharacterFormComponent } from '../add-character-form/add-character-form.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { DialogLoadPartyComponent } from '../dialog-load-party/dialog-load-party.component';
 
 @Component({
   selector: 'app-heroes',
@@ -26,6 +28,7 @@ export class HeroesComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private cdRef: ChangeDetectorRef,
+    private _snackBar: MatSnackBar,
     ) {
     this.characterService = characterService;
     this.characterForm = this.formBuilder.group({
@@ -66,13 +69,21 @@ export class HeroesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != 'cancelled') {
-        this.characterService.saveParty(result, this.hero_list).subscribe(result => console.log(result));
+        this.characterService.saveParty(result, this.hero_list).subscribe(result => {
+          let  message = "Failed, there was a problem saving your party"
+          if(result.status == 200) {
+            message = "Success! Party saved"
+          }
+          this.openSnackBar(message)
+        });
       }
     });
   }
 
   loadDialog(): void {
-
+    const dialogRef = this.dialog.open(DialogLoadPartyComponent, {
+      width: '600px',
+    });
   }
 
   addCharacterDialog(): void {
@@ -89,5 +100,9 @@ export class HeroesComponent implements OnInit {
   closeCharacter(list, character) {
     let index = list.indexOf(character);
     list.splice(index, 1);
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
   }
 }

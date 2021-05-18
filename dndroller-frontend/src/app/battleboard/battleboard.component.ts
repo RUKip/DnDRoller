@@ -26,13 +26,6 @@ export class BattleboardComponent implements OnInit {
 
        // Add the clone to the new array.
       event.container.data.splice(event.currentIndex, 0, clone);
-
-      copyArrayItem<Character>(
-          event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex
-        );
     }
   }
 

@@ -15,14 +15,18 @@ export class CharacterService {
     this.settings = new Settings();
   }
 
+  getAllPartyOptions() {
+    const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/'; 
+    return this.http.get(url);
+  }
+
   loadCharacters(party_name: string) {
-    const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/' + party_name;
+    const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/load/' + party_name;
     return  this.http.get(url);
   }
 
   saveParty(party_name: string, characters: Array<Character>) {
     const url: string = 'http://' + this.settings.defaultUrl + '/api/heroes/save';
-    console.log('posting to url ' + url);
     return this.http.post(url, {'party_name': party_name, 'heroes': characters}, {responseType: 'text'});
   }
 }

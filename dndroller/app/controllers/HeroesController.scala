@@ -11,23 +11,19 @@ import play.api.mvc._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-
 /**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
+ * This controller Handles Parties, loading and saving parties
  */
 @Singleton
 class HeroesController @Inject()(val cc: ControllerComponents, val databaseHandler: DatabaseHandler)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc) {
 
   /**
-   * Create an Action to render an HTML page.
-   *
-   * The configuration in the `routes` file means that this method
-   * will be called when the application receives a `GET` request with
-   * a path of `/`.
+   * Indexes all possible Parties available
    */
-  def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+  def index(): Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
+    Future {
+      databaseHandler.getAllParties()
+    }
   }
 
   def saveParty(): Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
@@ -55,11 +51,12 @@ class HeroesController @Inject()(val cc: ControllerComponents, val databaseHandl
     }
   }
 
-  def saveRandomHero():  Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
+  def saveRandomHero(): Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
     Future {
       databaseHandler.randomInsert()
       Ok("Success")
     }
   }
 
+  def loadParty(party_name: String): Action[AnyContent]
 }

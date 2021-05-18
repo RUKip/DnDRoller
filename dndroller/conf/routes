@@ -12,6 +12,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # API routes
 
 # Heroes routes
-POST    /api/heroes/save            controllers.HeroesController.saveParty()
-
-POST    /api/heroes/insert/random   controllers.HeroesController.saveRandomHero()
+POST    /api/heroes/save                controllers.HeroesController.saveParty()
+POST    /api/heroes/insert/random       controllers.HeroesController.saveRandomHero()
+GET     /api/heroes/                    controllers.HeroesController.index()
+GET     /api/heroes/load/:party_name   controllers.HeroesController.loadParty(party_name: String)
